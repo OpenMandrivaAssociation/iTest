@@ -1,14 +1,7 @@
-# $Id: itest.spec 5762 2007-08-20 18:35:39Z dries $
-# Authority: akdengi
-# Upstream: itest.sourceforge.net
-%define rel 1
-
-%{?dist: %{expand: %%define %dist 1}}
-
 Summary: Testing system
 Name: iTest
 Version: 1.4.1
-Release: %mkrel %{rel}
+Release: %mkrel 1
 License: GPL
 Group: Education
 URL: http://itest.sourceforge.net/
@@ -20,7 +13,6 @@ BuildRequires: qt4-common
 %description
 iTest - it is a client-server appplication for create and execution tests and exams. 
 This may work by server on a one computer and many mashine for student may connect for it
-
 
 %post
 ln -s /opt/iTest-%{version}/iTestServer /usr/bin/iTest
@@ -47,6 +39,7 @@ make
 
 %install
 rm -rf %{buildroot}
+
 mkdir $RPM_BUILD_ROOT/opt
 mkdir $RPM_BUILD_ROOT/opt/iTest-%{version}
 mkdir $RPM_BUILD_ROOT/usr
