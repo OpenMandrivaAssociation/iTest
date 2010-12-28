@@ -12,10 +12,6 @@ Release: %mkrel %{rel}
 License: GPL
 Group: Education
 URL: http://itest.sourceforge.net/
-
-Packager: Alexander Kazancev <kazancas@mail.ru>
-Vendor: Mandriva Russia, http://www.mandriva.ru
-
 Source: %{name}-%{version}-src.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -25,9 +21,6 @@ BuildRequires: qt4-common
 iTest - it is a client-server appplication for create and execution tests and exams. 
 This may work by server on a one computer and many mashine for student may connect for it
 
-%description -l ru
-iTest - это клиент-серверное приложение для создания и проведения тестов и экзаменов.
-Он может работать как сервер на одной машине или к нему можно подключить множество компьютеров.
 
 %post
 ln -s /opt/iTest-%{version}/iTestServer /usr/bin/iTest
@@ -38,10 +31,7 @@ rm -rf /usr/bin/iTest
 rm -rf /usr/bin/iTestWri
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT
-
-%setup -n %{name}-%{version}-src -q
+%setup -qn %{name}-%{version}-src -q
 
 %build
 cd iTestServer
@@ -56,6 +46,7 @@ cd ..
 make
 
 %install
+rm -rf %{buildroot}
 mkdir $RPM_BUILD_ROOT/opt
 mkdir $RPM_BUILD_ROOT/opt/iTest-%{version}
 mkdir $RPM_BUILD_ROOT/usr
@@ -112,6 +103,9 @@ EOF
 install -m 0644 itestwri.desktop \
 %{buildroot}%{_datadir}/applications/itestwri.desktop
 
+%clean
+rm -rf %{buildroot}
+
 %files
 %defattr(-,root, root)
 /opt/iTest-%{version}/iTestClient
@@ -123,5 +117,3 @@ install -m 0644 itestwri.desktop \
 /opt/iTest-%{version}/itos.png
 %{_datadir}/applications/itest.desktop
 %{_datadir}/applications/itestwri.desktop
-
-
