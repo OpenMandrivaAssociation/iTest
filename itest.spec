@@ -8,7 +8,7 @@ URL: http://itest.sourceforge.net/
 Source: %{name}-%{version}-src.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires: qt4-common
+BuildRequires: qt4-common qt4-devel
 
 %description
 iTest - it is a client-server appplication for create and execution tests and exams. 
