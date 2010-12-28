@@ -14,14 +14,6 @@ BuildRequires: qt4-common
 iTest - it is a client-server appplication for create and execution tests and exams. 
 This may work by server on a one computer and many mashine for student may connect for it
 
-%post
-ln -s /opt/iTest-%{version}/iTestServer /usr/bin/iTest
-ln -s /opt/iTest-%{version}/iTestClient /usr/bin/iTestWri
-
-%postun
-rm -rf /usr/bin/iTest
-rm -rf /usr/bin/iTestWri
-
 %prep
 %setup -qn %{name}-%{version}-src -q
 
@@ -40,15 +32,11 @@ make
 %install
 rm -rf %{buildroot}
 
-mkdir $RPM_BUILD_ROOT/opt
-mkdir $RPM_BUILD_ROOT/opt/iTest-%{version}
-mkdir $RPM_BUILD_ROOT/usr
-mkdir $RPM_BUILD_ROOT/usr/bin
-mkdir $RPM_BUILD_ROOT%{_datadir}
-mkdir $RPM_BUILD_ROOT%{_datadir}/applications
-cp -r bin/iTestClient $RPM_BUILD_ROOT/opt/iTest-%{version}
-cp -r bin/iTestServer $RPM_BUILD_ROOT/opt/iTest-%{version}
-cp -r *.png $RPM_BUILD_ROOT/opt/iTest-%{version}
+install -m 755 -d %{buildroot}%{_bindir}
+install -m 755 bin/iTestClient $RPM_BUILD_ROOT%{_bindir}
+install -m 755 bin/iTestServer $RPM_BUILD_ROOT%{_bindir}
+install -m 755 -d %{buildroot}%{_iconsdir}
+install -m 644 *.png $RPM_BUILD_ROOT%{_iconsdir}
 
 %makeinstall
 
@@ -60,12 +48,12 @@ GenericName=iTests & iExams
 GenericName[ru]=Экзаменатор iTest
 Comment=iTest -  Tests & Exams Program by Qt4
 Comment[ru]=Мощная программа для проведения тестов
-Exec=/opt/iTest-%{version}/iTestServer
-Icon=/opt/iTest-%{version}/itdb.png
+Exec=%{_bindir}/iTestServer
+Icon=%{_iconsdir}/itdb.png
 MimeType=application/x-edu;application/x-edugallery
 Name=iTestServer
 DocPath=
-Path=/opt/iTest-%{version}/
+Path=%{_bindir}
 Terminal=false
 Type=Application
 X-DCOP-ServiceType=Multi
@@ -82,12 +70,12 @@ GenericName=iTests & iExams client
 GenericName[ru]=Клиент для экзаменатора iTest
 Comment=iTest -  Tests & Exams client by Qt4
 Comment[ru]=Клиент для проведения тестов iTest
-Exec=/opt/iTest-%{version}/iTestClient
-Icon=/opt/iTest-%{version}/itos.png
+Exec=%{_bindir}/iTestClient
+Icon=%{_iconsdir}/itos.png
 MimeType=application/x-edu;application/x-edugallery
 Name=iTestClient
 DocPath=
-Path=/opt/iTest-%{version}/
+Path=%{_bindir}
 Terminal=false
 Type=Application
 X-DCOP-ServiceType=Multi
@@ -101,12 +89,12 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root, root)
-/opt/iTest-%{version}/iTestClient
-/opt/iTest-%{version}/iTestServer
-/opt/iTest-%{version}/itcl.png
-/opt/iTest-%{version}/itdb.png
-/opt/iTest-%{version}/itest.png
-/opt/iTest-%{version}/itestwri.png
-/opt/iTest-%{version}/itos.png
+%{_bindir}/iTestClient
+%{_bindir}/iTestServer
+%{_iconsdir}/itcl.png
+%{_iconsdir}/itdb.png
+%{_iconsdir}/itest.png
+%{_iconsdir}/itestwri.png
+%{_iconsdir}/itos.png
 %{_datadir}/applications/itest.desktop
 %{_datadir}/applications/itestwri.desktop
