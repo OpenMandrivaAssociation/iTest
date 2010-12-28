@@ -6,6 +6,7 @@ License: GPL
 Group: Education
 URL: http://itest.sourceforge.net/
 Source: %{name}-%{version}-src.tar.gz
+Patch0:	 itest-1.4-qt4.7.diff
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: qt4-common qt4-devel
@@ -16,6 +17,7 @@ This may work by server on a one computer and many mashine for student may conne
 
 %prep
 %setup -qn %{name}-%{version}-src -q
+%patch0 -p1
 
 %build
 cd iTestServer
