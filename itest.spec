@@ -100,3 +100,28 @@ rm -rf %{buildroot}
 %{_iconsdir}/itos.png
 %{_datadir}/applications/itest.desktop
 %{_datadir}/applications/itestwri.desktop
+
+
+%changelog
+* Wed Dec 29 2010 Александр Казанцев <kazancas@mandriva.org> 1.4.1-1mdv2011.0
++ Revision: 625744
+- fix build for Qt4.7
+-initial release
+- import iTest
+
+
+* Wed Apr 15 2009 Alexander Kazancev <kazancas@mandriva.ru> - 1.4.1-1
+- version 1.4.1
+
+* Fri Jan 09 2009 Alexander Kazancev <kazancas@mandriva.ru> - 1.4.0-1
+- new release 1.4.0 for 2009.0
+- fix spec for build of source code
+
+* Wed May 28 2008 Alexander Kazancev <kazancas@mandriva.ru> - 1.3.0-2
+- fix bug on disapear test windows
+
+* Fri May 08 2008 Alexander Kazancev <kazancas@mandriva.ru> - 1.3.0-1
+- packet for 2008.1
+
+* Thu Nov 20 2007 Alexander Kazancev <kazancas@mandriva.ru> - 1.3.0-1
+- Initial release.
