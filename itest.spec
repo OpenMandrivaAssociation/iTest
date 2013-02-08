@@ -1,19 +1,17 @@
 Summary: Testing system
 Name: iTest
 Version: 1.4.1
-Release: %mkrel 1
+Release: 2
 License: GPL
 Group: Education
 URL: http://itest.sourceforge.net/
 Source: %{name}-%{version}-src.tar.gz
 Patch0:	 itest-1.4-qt4.7.diff
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: qt4-common qt4-devel
 
 %description
-iTest - it is a client-server appplication for create and execution tests and exams. 
-This may work by server on a one computer and many mashine for student may connect for it
+iTest is a client-server appplication for creation and running tests and exams.
 
 %prep
 %setup -qn %{name}-%{version}-src -q
