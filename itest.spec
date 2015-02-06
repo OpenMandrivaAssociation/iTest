@@ -1,7 +1,7 @@
 Summary: Testing system
 Name: iTest
 Version: 1.4.1
-Release: 2
+Release: 3
 License: GPL
 Group: Education
 URL: http://itest.sourceforge.net/
