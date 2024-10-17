@@ -4,7 +4,7 @@ Version: 1.4.1
 Release: 3
 License: GPL
 Group: Education
-URL: http://itest.sourceforge.net/
+URL: https://itest.sourceforge.net/
 Source: %{name}-%{version}-src.tar.gz
 Patch0:	 itest-1.4-qt4.7.diff
 
