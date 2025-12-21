@@ -8,6 +8,7 @@ URL: https://itest.sourceforge.net/
 Source: %{name}-%{version}-src.tar.gz
 Patch0:	 itest-1.4-qt4.7.diff
 
+BuildRequires:	make
 BuildRequires: qt4-common qt4-devel
 
 %description
